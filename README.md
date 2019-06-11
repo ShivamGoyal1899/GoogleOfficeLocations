@@ -93,7 +93,7 @@ The easiest way to get started with Flutter is to use the flutter command line t
 
 Adding additional capability to a Flutter app is easy using [Pub packages](https://pub.dartlang.org/flutter). In this tutorial, you introduce the [Google Maps Flutter plugin](https://pub.dartlang.org/packages/google_maps_flutter) by adding a single line to the pubspec.yaml file.
 
-<script src="https://medium.com/media/3c3ca9a25651a3486fc70cf4e05a7f58" frameborder=0></script>
+<script src="https://gist.github.com/ShivamGoyal1899/a66de211866441c5e64ba31ab49320be.js"></script>
 
 Download the package with the following command::
 
@@ -110,7 +110,7 @@ To use Google Maps in your Flutter app, you need to configure an API project wit
 
 To add an API key to the Android app, edit the AndroidManifest.xml file in android/app/src/main. Add a single meta-data entry containing the API key created in the previous step.
 
-<script src="https://medium.com/media/963878dfb4d780b341593c4f58bc83d6" frameborder=0></script>
+<script src="https://gist.github.com/ShivamGoyal1899/ca8d6f46530b25f318236cac11eb0353.js"></script>
 
 ### Adding an API key for an iOS app
 
@@ -118,17 +118,17 @@ To add an API key to the iOS app, edit the AppDelegate.m file in ios/Runner. Unl
 
 Make two changes to this file. First, add an #import statement to pull in the Google Maps headers, and then call the provideAPIKey() method of the GMSServices singleton. This API key enables Google Maps to correctly serve map tiles.
 
-<script src="https://medium.com/media/09184ecb89ca40d57d6377589fcea4ac" frameborder=0></script>
+<script src="https://gist.github.com/ShivamGoyal1899/9f80ded4534ae68ae572462234e575aa.js"></script>
 
 You also need to add a setting to ios/Runner/Info.plist. This entry forces Flutter on iOS into a single threaded mode, which is required for the platform view embedding to work. This technical restriction is being worked on and will be lifted before Google Maps moves out of Developer Preview.
 
-<script src="https://medium.com/media/0aa83f6d500c7b77143d97ca68871777" frameborder=0></script>
+<script src="https://gist.github.com/ShivamGoyal1899/263260058a41fed89d64bb4b89f6d8c3.js"></script>
 
 ### Putting a map on the screen
 
 Now it’s time to get a map on the screen. Update lib/main.dart as follows:
 
-<script src="https://medium.com/media/f468534d3ba0aa5357ca2216f7cccc7b" frameborder=0></script>
+<script src="https://gist.github.com/ShivamGoyal1899/88232c297037fc9564ab27f827c3a4bc.js"></script>
 
 ### Running the app
 
@@ -136,7 +136,7 @@ Run the Flutter app in either iOS or Android to see a single map view, centered 
 
     $ flutter run
 
-![](https://cdn-images-1.medium.com/max/5024/1*bDmcsldsYWkHawu2Sn7bjg.png)
+![](https://cdn-images-1.medium.com/max/1000/1*bDmcsldsYWkHawu2Sn7bjg.png)
 
 ## Upgrading to Google Maps SDK for iOS 3.0
 
@@ -149,13 +149,13 @@ When running the app in the previous step on iOS, you may have seen a warning on
 
 Edit ios/Podfile to declare a minimum platform version.
 
-<script src="https://medium.com/media/5c613ad11d709062d1854804c5c9529c" frameborder=0></script>
+<script src="https://gist.github.com/ShivamGoyal1899/2ac0dd3583e490a6a0a9cb7df950f021.js"></script>
 
 ### Update the CocoaPod dependency
 
 Run CocoaPods to pull the up-to-date version of Google Maps SDK for iOS:
 
-    **$** (cd ios && pod update)
+    $ (cd ios && pod update)
     Analyzing dependencies
     Fetching podspec for `Flutter` from `.symlinks/flutter/ios`
     Fetching podspec for `google_maps_flutter` from `.symlinks/plugins/google_maps_flutter/ios`
@@ -201,7 +201,7 @@ As you grow your codebase, it’s time to start using tooling that Dart provides
 
 To use these capabilities, add some new dependencies to the pubspec.yaml file. These dependencies provide access to http requests, the ability to mechanize JSON parsing, a configuration of useful lint rules used widely at Google, and a build runner that ties all of it together. Edit the dependencies stanza of your pubspec.yaml file as follows:
 
-<script src="https://medium.com/media/5664b6ed258e9b5298b098fd63468438" frameborder=0></script>
+<script src="https://gist.github.com/ShivamGoyal1899/c1c606287ab6b08a5e460370e1f7bd9d.js"></script>
 
 Run flutter packages get on the command line to retrieve these new dependencies, and to prepare the app for the next stages.
 
@@ -219,7 +219,7 @@ For linting, Dart provides the ability to [configure a customized code linter](h
 
 Add a file to the root of the project called analysis_options.yaml and fill it with the following content.
 
-<script src="https://medium.com/media/b20e40c7a776327ad523320642d210db" frameborder=0></script>
+<script src="https://gist.github.com/ShivamGoyal1899/738d94c609516664171c316f86224768.js"></script>
 
 The first line includes a default set of rules used widely at Google, and the linter rules section gives a taste of what is possible. The exclude line references a file that hasn't been generated yet. To run the lint rules, analyze the code as follows:
 
@@ -235,7 +235,7 @@ You might notice that the JSON data returned from the API endpoint has a regular
 
 In the lib/src directory, create a locations.dart file and describe the structure of the returned JSON data as follows:
 
-<script src="https://medium.com/media/2254f0ff11094da8e12f026584827168" frameborder=0></script>
+<script src="https://gist.github.com/ShivamGoyal1899/d679dbca70c31fbb3435d484be131166.js"></script>
 
 Once you’ve added this code, your IDE (if you are using one) should display some red squiggles, as it references a nonexistent sibling file, locations.g.dart. This generated file converts between untyped JSON structures and named objects. Create it by running the build_runner:
 
@@ -263,7 +263,7 @@ Your code should now analyze cleanly again.
 
 Modify the main.dart file to request the map data, and then use the returned info to add offices to the map:
 
-<script src="https://medium.com/media/953e23838a7dccbd91b0ebdf7defdd15" frameborder=0></script>
+<script src="https://gist.github.com/ShivamGoyal1899/5fc8f8cb19dc8793df9db75ad3c7b9db.js"></script>
 
 This code performs several operations:
 
