@@ -1,7 +1,7 @@
 
 # #CodeWithFlutter — Google Maps Integration
 
-Introduction
+## Introduction
 
 Flutter is Google’s mobile app SDK for crafting high-quality native experiences on iOS and Android in record time.
 
@@ -23,7 +23,7 @@ In this tutorial, you’ll build a mobile app featuring a Google Map using the F
 
 * **Fast to develop:** Build your Android and iOS applications in milliseconds with Stateful Hot Reload.
 
-* **Expressive and flexible: **Quickly ship features with a focus on native end-user experiences.
+* **Expressive and flexible:** Quickly ship features with a focus on native end-user experiences.
 
 * **Native performance on both iOS and Android:** Flutter’s widgets incorporate all critical platform differences — such as scrolling, navigation, icons, and fonts — to provide full native performance.
 
@@ -67,25 +67,25 @@ You can run this tutorial using any of the following devices:
 
 The easiest way to get started with Flutter is to use the flutter command line tool to create all the required code for a simple getting started experience.
 
-    **$** flutter create google_maps_in_flutter
+    $ flutter create google_maps_in_flutter
     Creating project google_maps_in_flutter...
     [Listing of created files elided]
     Running "flutter packages get" in google_maps_in_flutter...     6.1s
     Wrote 66 files.
     
     All done!
-    **[✓]** Flutter (Channel dev, v1.5.0, on Mac OS X 10.14.3 18D109, locale en-AU)
-    **[✓]** Android toolchain - develop for Android devices (Android SDK version 28.0.3)
-    **[✓]** iOS toolchain - develop for iOS devices (Xcode 10.2)
-    **[✓]** Android Studio is fully installed. (version 3.1)
-    **[✓]** IntelliJ IDEA Community Edition (version 2018.3.5)
-    **[✓]** VS Code (version 1.33.1)
-    **[✓]** Connected device is fully installed. (1 available)
+    [✓] Flutter (Channel dev, v1.5.0, on Mac OS X 10.14.3 18D109, locale en-AU)
+    [✓] Android toolchain - develop for Android devices (Android SDK version 28.0.3)
+    [✓] iOS toolchain - develop for iOS devices (Xcode 10.2)
+    [✓] Android Studio is fully installed. (version 3.1)
+    [✓] IntelliJ IDEA Community Edition (version 2018.3.5)
+    [✓] VS Code (version 1.33.1)
+    [✓] Connected device is fully installed. (1 available)
     
     In order to run your application, type:
     
-      **$** cd google_maps_in_flutter
-     ** $ **flutter run
+      $ cd google_maps_in_flutter
+      $ flutter run
     
     Your application code is in google_maps_in_flutter/lib/main.dart.
 
@@ -93,11 +93,11 @@ The easiest way to get started with Flutter is to use the flutter command line t
 
 Adding additional capability to a Flutter app is easy using [Pub packages](https://pub.dartlang.org/flutter). In this tutorial, you introduce the [Google Maps Flutter plugin](https://pub.dartlang.org/packages/google_maps_flutter) by adding a single line to the pubspec.yaml file.
 
-<iframe src="https://medium.com/media/3c3ca9a25651a3486fc70cf4e05a7f58" frameborder=0></iframe>
+<script src="https://medium.com/media/3c3ca9a25651a3486fc70cf4e05a7f58" frameborder=0></script>
 
 Download the package with the following command::
 
-    **$** flutter packages get
+    $ flutter packages get
     Running "flutter packages get" in google_maps_in_flutter...    0.9s
 
 ## Adding Google Maps to the app
@@ -110,7 +110,7 @@ To use Google Maps in your Flutter app, you need to configure an API project wit
 
 To add an API key to the Android app, edit the AndroidManifest.xml file in android/app/src/main. Add a single meta-data entry containing the API key created in the previous step.
 
-<iframe src="https://medium.com/media/963878dfb4d780b341593c4f58bc83d6" frameborder=0></iframe>
+<script src="https://medium.com/media/963878dfb4d780b341593c4f58bc83d6" frameborder=0></script>
 
 ### Adding an API key for an iOS app
 
@@ -118,23 +118,23 @@ To add an API key to the iOS app, edit the AppDelegate.m file in ios/Runner. Unl
 
 Make two changes to this file. First, add an #import statement to pull in the Google Maps headers, and then call the provideAPIKey() method of the GMSServices singleton. This API key enables Google Maps to correctly serve map tiles.
 
-<iframe src="https://medium.com/media/09184ecb89ca40d57d6377589fcea4ac" frameborder=0></iframe>
+<script src="https://medium.com/media/09184ecb89ca40d57d6377589fcea4ac" frameborder=0></script>
 
 You also need to add a setting to ios/Runner/Info.plist. This entry forces Flutter on iOS into a single threaded mode, which is required for the platform view embedding to work. This technical restriction is being worked on and will be lifted before Google Maps moves out of Developer Preview.
 
-<iframe src="https://medium.com/media/0aa83f6d500c7b77143d97ca68871777" frameborder=0></iframe>
+<script src="https://medium.com/media/0aa83f6d500c7b77143d97ca68871777" frameborder=0></script>
 
 ### Putting a map on the screen
 
 Now it’s time to get a map on the screen. Update lib/main.dart as follows:
 
-<iframe src="https://medium.com/media/f468534d3ba0aa5357ca2216f7cccc7b" frameborder=0></iframe>
+<script src="https://medium.com/media/f468534d3ba0aa5357ca2216f7cccc7b" frameborder=0></script>
 
 ### Running the app
 
 Run the Flutter app in either iOS or Android to see a single map view, centered on Portland. Feel free to modify the map center to represent your hometown, or somewhere that is important to you.
 
-    **$** flutter run
+    $ flutter run
 
 ![](https://cdn-images-1.medium.com/max/5024/1*bDmcsldsYWkHawu2Sn7bjg.png)
 
@@ -149,7 +149,7 @@ When running the app in the previous step on iOS, you may have seen a warning on
 
 Edit ios/Podfile to declare a minimum platform version.
 
-<iframe src="https://medium.com/media/5c613ad11d709062d1854804c5c9529c" frameborder=0></iframe>
+<script src="https://medium.com/media/5c613ad11d709062d1854804c5c9529c" frameborder=0></script>
 
 ### Update the CocoaPod dependency
 
@@ -171,7 +171,7 @@ Run CocoaPods to pull the up-to-date version of Google Maps SDK for iOS:
 
 Configure the deployment target iOS version in the iOS Runner Xcode project so that the binary versions of the Runner and Google Maps match. Open the Runner project from the command line as follows.
 
-    **$ **open ios/Runner.xcworkspace/
+    $ open ios/Runner.xcworkspace/
 
 This opens up the Xcode workspace for the iOS Runner project. Configure the Deployment Target for Runner in the General preferences pane.
 
@@ -181,7 +181,7 @@ This opens up the Xcode workspace for the iOS Runner project. Configure the Depl
 
 Run the Flutter app in iOS, this time using the latest version of Google Maps SDK for iOS.
 
-    **$** flutter run
+    $ flutter run
     Launching lib/main.dart on iPhone XR in debug mode...
     Running pod install...                                       1.2s
     Running Xcode build...
@@ -201,16 +201,16 @@ As you grow your codebase, it’s time to start using tooling that Dart provides
 
 To use these capabilities, add some new dependencies to the pubspec.yaml file. These dependencies provide access to http requests, the ability to mechanize JSON parsing, a configuration of useful lint rules used widely at Google, and a build runner that ties all of it together. Edit the dependencies stanza of your pubspec.yaml file as follows:
 
-<iframe src="https://medium.com/media/5664b6ed258e9b5298b098fd63468438" frameborder=0></iframe>
+<script src="https://medium.com/media/5664b6ed258e9b5298b098fd63468438" frameborder=0></script>
 
 Run flutter packages get on the command line to retrieve these new dependencies, and to prepare the app for the next stages.
 
-    **$** flutter packages get 
+    $ flutter packages get 
     Running "flutter packages get" in google_maps_in_flutter...     0.5s
 
 ### Using the providing tooling
 
-    **$** flutter format .
+    $ flutter format .
     Formatting directory .:
     Formatted lib\main.dart
     Unchanged test\widget_test.dart
@@ -219,11 +219,11 @@ For linting, Dart provides the ability to [configure a customized code linter](h
 
 Add a file to the root of the project called analysis_options.yaml and fill it with the following content.
 
-<iframe src="https://medium.com/media/b20e40c7a776327ad523320642d210db" frameborder=0></iframe>
+<script src="https://medium.com/media/b20e40c7a776327ad523320642d210db" frameborder=0></script>
 
 The first line includes a default set of rules used widely at Google, and the linter rules section gives a taste of what is possible. The exclude line references a file that hasn't been generated yet. To run the lint rules, analyze the code as follows:
 
-    **$** flutter analyze
+    $ flutter analyze
     Analyzing google_maps_in_flutter...
     No issues found! (ran in 1.8s)
 
@@ -235,11 +235,11 @@ You might notice that the JSON data returned from the API endpoint has a regular
 
 In the lib/src directory, create a locations.dart file and describe the structure of the returned JSON data as follows:
 
-<iframe src="https://medium.com/media/2254f0ff11094da8e12f026584827168" frameborder=0></iframe>
+<script src="https://medium.com/media/2254f0ff11094da8e12f026584827168" frameborder=0></script>
 
 Once you’ve added this code, your IDE (if you are using one) should display some red squiggles, as it references a nonexistent sibling file, locations.g.dart. This generated file converts between untyped JSON structures and named objects. Create it by running the build_runner:
 
-    **$** flutter packages pub run build_runner build
+    $ flutter packages pub run build_runner build
     [INFO] Generating build script...
     [INFO] Generating build script completed, took 291ms
     
@@ -263,7 +263,7 @@ Your code should now analyze cleanly again.
 
 Modify the main.dart file to request the map data, and then use the returned info to add offices to the map:
 
-<iframe src="https://medium.com/media/953e23838a7dccbd91b0ebdf7defdd15" frameborder=0></iframe>
+<script src="https://medium.com/media/953e23838a7dccbd91b0ebdf7defdd15" frameborder=0></script>
 
 This code performs several operations:
 
