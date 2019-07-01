@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'src/locations.dart' as locations;
 
 void main() => runApp(MyApp());
@@ -11,32 +10,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  PermissionStatus _status;
-
   @override
   void initState() {
     super.initState();
-    PermissionHandler()
-        .checkPermissionStatus(PermissionGroup.locationWhenInUse)
-        .then(_updateStatus);
-  }
-
-  void _updateStatus(PermissionStatus status) {
-    if (status != _status) {
-      setState(() {
-        _status = status;
-      });
-    }
-  }
-
-  void _askPermission() {
-    PermissionHandler().requestPermissions(
-        [PermissionGroup.locationWhenInUse]).then(_onStatusRequested);
-  }
-
-  void _onStatusRequested(Map<PermissionGroup, PermissionStatus> statuses) {
-    final status = statuses[PermissionGroup.locationWhenInUse];
-    _updateStatus(status);
   }
 
   final Map<String, Marker> _markers = {};
@@ -64,9 +40,6 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
-            actions: <Widget>[
-              IconButton(icon: Icon(Icons.my_location), onPressed: _askPermission)
-            ],
             title: const Text('Google Office Locations'),
             backgroundColor: Colors.white,
           ),
@@ -81,7 +54,6 @@ class _MyAppState extends State<MyApp> {
             tiltGesturesEnabled: true,
             compassEnabled: true,
             rotateGesturesEnabled: true,
-            myLocationEnabled: true,
           ),
         ),
         theme: ThemeData(

@@ -1,4 +1,4 @@
-package tk.shivamgoyal.google_maps_in_flutter;
+package co.shivamgoyal.googleofficelocations;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
